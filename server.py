@@ -17,6 +17,7 @@ from flask import Flask, render_template, request, redirect
 #             html_file.write(html_text)
 quiz = Flask(__name__)
 page_num = 1
+page_number = 1
 right_answers=['0=so empty', 'בית החולים כפר שאול', 'next answer', 'etc']
 @quiz.route('/')
 def my_home():
@@ -36,39 +37,44 @@ def page_name(current_page=''):
 @quiz.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == 'POST':
-        global page_num
+        global page_number
         try:
             answer = request.form.get('answer')
             answers.append(answer)
-            if answer == right_answers[page_num]:
-                return redirect('right_answer.html')
+            if answer == right_answers[page_number]:
+                return redirect('/full_answer')
             else:
                 return redirect('wrong_answer.html')
         except:
-            return 'couldnt get that try again'
+            return 'couldnt get that, try again'
     else:
-        return redirect(f'A{page_num}.html')
+        return redirect(f'A{page_number}.html')
 
 @quiz.route('/try_again')
 def try_again():
-    return render_template(f'Q{page_num}.html')
+    global page_number
+    return render_template(f'Q{page_number}.html')
 
 @quiz.route('/full_answer')
 def full_answer():
-    return render_template(f'A{page_num}.html')
+    global page_number
+    return render_template(f'A{page_number}.html')
 
 
 @quiz.route('/nextq')
 def nextq():
-    global page_num
-    page_number = request.args.get('page_number')
-    return render_template(f'Q{page_num+1}.html')
+    global  page_number
+    page_number = int(request.args.get('page_number'))
+    page_number += 1
+    return render_template(f'Q{page_number}.html')
 
 
 @quiz.route('/back')
 def back():
-    global page_num
-    return render_template(f'Q{page_num-1}.html')
+    global page_number
+    page_number = int(request.args.get('page_number'))
+    page_number -= 1
+    return render_template(f'Q{page_number}.html')
 
 
 def write_to_csv(answer, username):
