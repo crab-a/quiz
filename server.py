@@ -16,39 +16,34 @@ from flask import Flask, render_template, request, redirect
 #         with open(f'.\\static\\assets\\texts\\{html_txt_filename}', 'w', encoding='utf-8') as html_file:
 #             html_file.write(html_text)
 quiz = Flask(__name__)
-page_num = 1
-page_number = 1
+page_number = 0
 right_answers=['0=so empty', 'בית החולים כפר שאול', 'next answer', 'etc']
 @quiz.route('/')
 def my_home():
-    return render_template('Q1.html')  # change to intro.html
+    return render_template('intro.html')
 
 
 @quiz.route('/<string:current_page>')
 def page_name(current_page=''):
-    global page_num
-    try:
-        page_num = int(current_page[1])
-    except:
-        pass
     return render_template(current_page)
 
 
 @quiz.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
-    if request.method == 'POST':
+    if request.method == 'POST' and request.form.get('answer') != '':
         global page_number
+        global answers
         try:
             answer = request.form.get('answer')
-            answers.append(answer)
+            answers[f'{page_number}'] = answer
             if answer == right_answers[page_number]:
                 return redirect('/full_answer')
             else:
-                return redirect('wrong_answer.html')
+                return redirect('/wrong_answer.html')
         except:
             return 'couldnt get that, try again'
     else:
-        return redirect(f'A{page_number}.html')
+        return redirect('try_again')
 
 @quiz.route('/try_again')
 def try_again():
@@ -64,7 +59,7 @@ def full_answer():
 @quiz.route('/nextq')
 def nextq():
     global  page_number
-    page_number = int(request.args.get('page_number'))
+    page_number = find_page_number()
     page_number += 1
     return render_template(f'Q{page_number}.html')
 
@@ -72,9 +67,24 @@ def nextq():
 @quiz.route('/back')
 def back():
     global page_number
-    page_number = int(request.args.get('page_number'))
+    page_number = find_page_number()
     page_number -= 1
     return render_template(f'Q{page_number}.html')
+
+@quiz.route('/submit_quiz', methods=['POST', 'GET'])
+def submit_quiz():
+    global answers
+    if request.method == 'POST':
+        answer = request.form.get('answer')
+        answers['feedback'] = answer
+        return render_template('summary.html', answers=answers)
+
+    else:
+        return render_template('summary.html', answers=answers)
+
+@quiz.route('/Q0.html')
+def send_to():
+    return render_template(f'intro.html')
 
 
 def write_to_csv(answer, username):
@@ -83,7 +93,19 @@ def write_to_csv(answer, username):
         csv_writer.writerow([answer])
 
 
-answers = []
+
+def find_page_number():
+    page_number = int(request.args.get('page_number'))
+    if page_number == 0:
+        return render_template('intro.html')
+    elif page_number > 10:
+        return render_template('colophone.html')
+    else:
+        return page_number
+
+
+
+answers = {}
 
 # implment all q&a in the html templet of q and a
 # in the htmls change all <p> to <p dir="rtl"> to make rtl
