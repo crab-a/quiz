@@ -26,25 +26,26 @@
 <div id="site-border-bottom"></div>
 <!-- Add your content of header -->
 <header>
-  <nav class="navbar  navbar-fixed-top navbar-default">
-    <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    <nav class="navbar  navbar-fixed-top navbar-default">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ">
-                                <!--  ↓↓לעדכן את מספר הדף↓↓  -->
-          <li><a href="{{ url_for( 'back' ,page_number= 8 ) }}" title="">שאלה קודמת</a></li>
-        </ul>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav ">
+                    <!--  ↓↓לעדכן את מספר הדף↓↓  -->
+                    <li><a href="{{ url_for( 'back' ,page_number= 7 ) }}" title="">שאלה קודמת</a></li>
+                </ul>
 
 
-      </div>
-    </div>
-  </nav>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <div class="section-container">
@@ -57,15 +58,10 @@
 
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <p dir="rtl"> <p dir="rtl">
-בעיר השביעית בגודלה בישראל ברחוב הקרוי על שם נביא החורבן איפה אפשר למצוא שם שבע?</p>
-
-<ul>
-<li>בשבעת צבעי הקשת בכניסה לגן הילדים ברחוב</li>
-<li>בסמל העירייה המתנוסס על הדגלים ברחוב יש שבעה כוכבים</li>
-<li>בבית מספר שבע ברחוב חונה מכונית עם שבעה גלגלים (כולל הרזרבי)</li>
-<li>בבית מספר 17 ברחוב יש בית עם 7 קומות.</li>
-</ul>                     </div>
+                        <p dir="rtl">
+                        <p dir="rtl">
+                            בעיר השביעית בגודלה בישראל ברחוב הקרוי על שם נביא החורבן איפה אפשר למצוא שם שבע?</p>
+                    </div>
 
                 </div>
 
@@ -79,7 +75,18 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="form-group">
-                        <textarea name="answer" class="form-control" rows="1" placeholder="תשובה כאן" style="text-align:right"></textarea>
+                        <input type="radio" id="בסמל העירייה המתנוסס על הדגלים ברחוב יש שבעה כוכבים" name="answer" value="בסמל העירייה המתנוסס על הדגלים ברחוב יש שבעה כוכבים">
+                        <label for="בסמל העירייה המתנוסס על הדגלים ברחוב יש שבעה כוכבים">  בסמל העירייה המתנוסס על הדגלים ברחוב יש שבעה כוכבים </label><br>
+
+                        <input type="radio" id="בבית מספר 17 ברחוב יש בית עם 7 קומות." name="answer" value="בבית מספר 17 ברחוב יש בית עם 7 קומות.">
+                        <label for="בבית מספר 17 ברחוב יש בית עם 7 קומות.">  בבית מספר 17 ברחוב יש בית עם 7 קומות. </label><br>
+
+                            <input type="radio" id="בבית מספר שבע ברחוב חונה מכונית עם שבעה גלגלים (כולל הרזרבי)" name="answer" value="בבית מספר שבע ברחוב חונה מכונית עם שבעה גלגלים (כולל הרזרבי)">
+                            <label for="בבית מספר שבע ברחוב חונה מכונית עם שבעה גלגלים (כולל הרזרבי)">  בבית מספר שבע ברחוב חונה מכונית עם שבעה גלגלים (כולל הרזרבי) </label><br>
+
+                        <input type="radio" id="בשבעת צבעי הקשת בכניסה לגן הילדים ברחוב" name="answer" value="בשבעת צבעי הקשת בכניסה לגן הילדים ברחוב">
+                        <label for="בשבעת צבעי הקשת בכניסה לגן הילדים ברחוב">  בשבעת צבעי הקשת בכניסה לגן הילדים ברחוב </label><br>
+
                     </div>
                     <button type="submit" class="btn btn-default btn-lg">שלח</button>
                 </div>
@@ -92,6 +99,7 @@
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
   });
+
 
 
 </script>

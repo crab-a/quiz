@@ -26,25 +26,26 @@
 <div id="site-border-bottom"></div>
 <!-- Add your content of header -->
 <header>
-  <nav class="navbar  navbar-fixed-top navbar-default">
-    <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    <nav class="navbar  navbar-fixed-top navbar-default">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ">
-                                <!--  ↓↓לעדכן את מספר הדף↓↓  -->
-          <li><a href="{{ url_for( 'back' ,page_number= 9 ) }}" title="">שאלה קודמת</a></li>
-        </ul>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav ">
+                    <!--  ↓↓לעדכן את מספר הדף↓↓  -->
+                    <li><a href="{{ url_for( 'back' ,page_number= 8 ) }}" title="">שאלה קודמת</a></li>
+                </ul>
 
 
-      </div>
-    </div>
-  </nav>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <div class="section-container">
@@ -57,19 +58,15 @@
 
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <p dir="rtl"> <p><img alt="&quot;השער החדש&quot;" src="../images/new_gate.jpg" title="השער החדש" /></p>
-<p dir="rtl">
-כמספר השערים בחומת ירושלים כך מספר השערים בחומת אחת הערים שהחריבו אותה. השער החדש הוא השער השמיני במספר שנפרץ בחומה בשלהי המאה ה-19. 
+                        <p dir="rtl">
+                        <p><img class="img-responsive" alt="&quot;השער החדש&quot;" src="./static/assets/images/new_gate.jpg" title="השער החדש"/></p>
+                        <p dir="rtl">
+                            כמספר השערים בחומת ירושלים כך מספר השערים בחומת אחת הערים שהחריבו אותה. השער החדש הוא השער
+                            השמיני במספר שנפרץ בחומה בשלהי המאה ה-19.
 
-<p dir="rtl">
-?איפה ניתן למצוא את השער השמיני של העיר שהחריבה את ירושלים וגם התהדרה בשמונה שערים.</p>
-<ul>
-<li>   במוזיאון בברלין</li>
-<li>   במוזיאון הבריטי בלונדון</li>
-<li>בפורום רומאנום ברומא ליד שער טיטוס</li> 
-<li> במוזיאון בפריז </li>   
-<li> במוזיאון ישראל בירושלים</li>                        </ul>
-</div>
+                        <p dir="rtl">
+                            ?איפה ניתן למצוא את השער השמיני של העיר שהחריבה את ירושלים וגם התהדרה בשמונה שערים.</p>
+                    </div>
 
                 </div>
 
@@ -83,7 +80,20 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="form-group">
-                        <textarea name="answer" class="form-control" rows="1" placeholder="תשובה כאן" style="text-align:right"></textarea>
+                        <input type="radio" id="במוזיאון בברלין" name="answer" value="Berlin">
+                            <label for="במוזיאון בברלין">  במוזיאון בברלין </label><br>
+
+                            <input type="radio" id="במוזיאון ישראל בירושלים" name="answer" value="Jerusalem">
+                            <label for="במוזיאון ישראל בירושלים">  במוזיאון ישראל בירושלים </label><br>
+
+                            <input type="radio" id="במוזיאון הבריטי בלונדון" name="answer" value="London">
+                            <label for="במוזיאון הבריטי בלונדון">  במוזיאון הבריטי בלונדון </label><br>
+
+                            <input type="radio" id="בפורום רומאנום ברומא ליד שער טיטוס" name="answer" value="Rome">
+                            <label for="בפורום רומאנום ברומא ליד שער טיטוס">  בפורום רומאנום ברומא ליד שער טיטוס </label><br>
+
+                            <input type="radio" id="במוזיאון בפריז" name="answer" value="Paris">
+                            <label for="במוזיאון בפריז">  במוזיאון בפריז </label><br>
                     </div>
                     <button type="submit" class="btn btn-default btn-lg">שלח</button>
                 </div>
@@ -96,6 +106,7 @@
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
   });
+
 
 
 </script>

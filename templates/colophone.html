@@ -25,6 +25,28 @@
 <div id="site-border-top"></div>
 <div id="site-border-bottom"></div>
 <!-- Add your content of header -->
+<header>
+    <nav class="navbar  navbar-fixed-top navbar-default">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav ">
+                    <!--  ↓↓לעדכן את מספר הדף↓↓  -->
+                    <li><a href="{{ url_for( 'back' ,page_number= 11 ) }}" title=""> אחורה</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+</header>
 
 <div class="section-container">
     <div class="container">
@@ -56,7 +78,9 @@
             <div class="row">
                 <div class="col-md-7" style="text-align:center">
                     <div class="form-group">
-                        <textarea name="answer" class="form-control" rows="3" placeholder="לאחר סיום המבחן לא ניתן יהיה לחזור לאחור" style="text-align:right"></textarea>
+                        <textarea name="answer" class="form-control" rows="3"
+                                  placeholder="לאחר סיום המבחן לא ניתן יהיה לחזור לאחור"
+                                  style="text-align:right"></textarea>
                     </div>
                     <button type="submit" class="btn btn-default btn-lg">סיום המבחן ושליחת משוב</button>
                 </div>

@@ -26,25 +26,26 @@
 <div id="site-border-bottom"></div>
 <!-- Add your content of header -->
 <header>
-  <nav class="navbar  navbar-fixed-top navbar-default">
-    <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    <nav class="navbar  navbar-fixed-top navbar-default">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ">
-                                <!--  ↓↓לעדכן את מספר הדף↓↓  -->
-          <li><a href="{{ url_for( 'back' ,page_number= 6 ) }}" title="">שאלה קודמת</a></li>
-        </ul>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav ">
+                    <!--  ↓↓לעדכן את מספר הדף↓↓  -->
+                    <li><a href="{{ url_for( 'back' ,page_number= 5 ) }}" title="">שאלה קודמת</a></li>
+                </ul>
 
 
-      </div>
-    </div>
-  </nav>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <div class="section-container">
@@ -57,7 +58,8 @@
 
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <p dir="rtl"> <p>באיזה קו אוטובוס בירושלים לא היה פיגוע?</p>                     </div>
+                        <p dir="rtl">
+                        <p>באיזה קו אוטובוס בירושלים לא היה פיגוע?</p></div>
 
                 </div>
 
@@ -68,13 +70,60 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-4">
         <form action="/submit_form" method="post" class="reveal-content">
+
             <div class="row">
+
                 <div class="col-md-7">
-                    <div class="form-group">
-                        <textarea name="answer" class="form-control" rows="1" placeholder="תשובה כאן" style="text-align:right"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-default btn-lg">שלח</button>
+
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <style>
+table, th, td {
+  border: 1px solid transparent;
+  border-collapse: collapse;
+  width: 400px
+}
+
+                        </style>
+                    </head>
+                    <body>
+
+
+                    <table>
+                        <tr>
+                            <th>2</th>
+                            <th>5</th>
+                            <th>12</th>
+                            <th>14</th>
+                            <th>18</th>
+                            <th>19</th>
+                            <th>20</th>
+                            <th>26</th>
+                            <th>32</th>
+
+
+                        </tr>
+                        <tr>
+                            <td><input type="radio" id="2" name="answer" value="2"></td>
+                            <td><input type="radio" id="5" name="answer" value="5"></td>
+                            <td><input type="radio" id="12" name="answer" value="12"></td>
+                            <td><input type="radio" id="14" name="answer" value="14"></td>
+                            <td><input type="radio" id="18" name="answer" value="18"></td>
+                            <td><input type="radio" id="19" name="answer" value="19"></td>
+                            <td><input type="radio" id="20" name="answer" value="20"></td>
+                            <td><input type="radio" id="26" name="answer" value="26"></td>
+                            <td><input type="radio" id="32" name="answer" value="32"></td>
+                        </tr>
+                        <tr>
+
+                    </table>
+
+                    </body>
+                    </html>
+
                 </div>
+                <button type="submit" class="btn btn-default btn-lg">שלח</button>
             </div>
         </form>
     </div>
@@ -84,6 +133,11 @@
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
   });
+
+
+
+
+
 
 
 </script>
