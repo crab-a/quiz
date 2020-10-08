@@ -15,20 +15,20 @@ from flask import Flask, render_template, request, redirect
 #             html_txt_filename = md_txt_filename.replace('.md', '.html')
 #         with open(f'.\\static\\assets\\texts\\{html_txt_filename}', 'w', encoding='utf-8') as html_file:
 #             html_file.write(html_text)
-quiz = Flask(__name__)
+app = Flask(__name__)
 page_number = 1
 answer = ''
-@quiz.route('/')
+@app.route('/')
 def my_home():
     return render_template('intro.html')
 
 
-@quiz.route('/<string:current_page>')  # to be removed in production
+@app.route('/<string:current_page>')  # to be removed in production
 def page_name(current_page=''):
     return render_template(current_page)
 
 
-@quiz.route('/submit_form', methods=['POST', 'GET'])
+@app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == 'POST':
         global page_number
@@ -48,18 +48,18 @@ def submit_form():
     else:
         return redirect('try_again')
 
-@quiz.route('/try_again')
+@app.route('/try_again')
 def try_again():
     global page_number
     return render_template(f'Q{page_number}.html')
 
-@quiz.route('/full_answer')
+@app.route('/full_answer')
 def full_answer():
     global page_number
     return render_template(f'A{page_number}.html')
 
 
-@quiz.route('/nextq')
+@app.route('/nextq')
 def nextq():
     global page_number
     page_number = find_page_number()
@@ -70,7 +70,7 @@ def nextq():
         return render_template(f'Q{page_number}.html')
 
 
-@quiz.route('/back')
+@app.route('/back')
 def back():
     global page_number
     page_number = find_page_number()
@@ -80,7 +80,7 @@ def back():
         page_number -= 1
         return render_template(f'Q{page_number}.html')
 
-@quiz.route('/submit_quiz', methods=['POST', 'GET'])
+@app.route('/submit_quiz', methods=['POST', 'GET'])
 def submit_quiz():
     global answers
     global answer
@@ -93,7 +93,7 @@ def submit_quiz():
 
         return render_template('summary.html', answers=answers)
 
-@quiz.route('/Q0.html')
+@app.route('/Q0.html')
 def send_to():
     return render_template(f'intro.html')
 
