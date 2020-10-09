@@ -26,25 +26,26 @@
 <div id="site-border-bottom"></div>
 <!-- Add your content of header -->
 <header>
-  <nav class="navbar  navbar-fixed-top navbar-default">
-    <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    <nav class="navbar  navbar-fixed-top navbar-default">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ">
-                                <!--  ↓↓לעדכן את מספר הדף↓↓  -->
-          <li><a href="{{ url_for( 'back' ,page_number= 4 ) }}" title="">שאלה קודמת</a></li>
-        </ul>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav ">
+                    <!--  ↓↓לעדכן את מספר הדף↓↓  -->
+                    <li><a href="{{ url_for( 'back' ,page_number= 3 ) }}" title="">שאלה קודמת</a></li>
+                </ul>
 
 
-      </div>
-    </div>
-  </nav>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <div class="section-container">
@@ -57,19 +58,24 @@
 
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <p dir="rtl"> <p dir="rtl">
-ד"ר ישראל אלדד היה נוהג ללכת בכל שנה בתשעה באב למוזיאון ישראל לבקר את הפסל (נדיר מסוגו, אחד משלושה בעולם) של מנהיג מכובשי הארץ שדיכא באכזריות את האוכלוסייה המקומית. הוא היה נעמד מול הפסל ואומר לו</p>
+                        <p dir="rtl">
+                        <p dir="rtl">
+                            ד"ר ישראל אלדד היה נוהג ללכת בכל שנה בתשעה באב למוזיאון ישראל לבקר את הפסל (נדיר מסוגו, אחד
+                            משלושה בעולם) של מנהיג מכובשי הארץ שדיכא באכזריות את האוכלוסייה המקומית. הוא היה נעמד מול
+                            הפסל ואומר לו</p>
 
-<p dir="rtl">
- ״נו? אתה והגזרות שלך חלפתם מן העולם ואילו אנחנו כאן חזרנו לארצנו ולאדמתנו!„ (ניסוח חופשי)</p>
+                        <p dir="rtl">
+                            ״נו? אתה והגזרות שלך חלפתם מן העולם ואילו אנחנו כאן חזרנו לארצנו ולאדמתנו!„ (ניסוח
+                            חופשי)</p>
 
-<p dir="rtl">
-אז נכון שאותו מנהיג זכור כאכזרי מאוד פה בארץ ישראל. אבל במקומות אחרים בעולם פועלו דווקא זכור לטובה. גלו מי האיש.</p>
+                        <p dir="rtl">
+                            אז נכון שאותו מנהיג זכור כאכזרי מאוד פה בארץ ישראל. אבל במקומות אחרים בעולם פועלו דווקא זכור
+                            לטובה. גלו מי האיש.</p>
 
-<p dir="rtl">
-מה האזכור הנוגע אליו בתרבות הפופולרית?</p>
+                        <p dir="rtl">
+                            מה האזכור הנוגע אליו בתרבות הפופולרית?</p>
 
-<p dir="rtl">
+                        <p dir="rtl">
 
 </div>
 
@@ -84,8 +90,27 @@
         <form action="/submit_form" method="post" class="reveal-content">
             <div class="row">
                 <div class="col-md-7">
-                    <div class="form-group"dir = "rtl">
-                        <textarea name="answer" class="form-control" rows="1" placeholder="תשובה כאן" style="text-align:right"></textarea>
+                    <div class="form-group">
+                          <input type="radio" id='מצודת כַּרכַּ ב"ממלכת גן עדן"' name="answer" value='Kerak Castle'>
+                          <label for='מצודת כַּרכַּ ב"ממלכת גן עדן"'> מצודת כַּרכַּ ב"ממלכת גן עדן"</label><br>
+
+                          <input type="radio" id='אמת המים בסרט "טיטוס"' name="answer" value='The Aqueduct'>
+                          <label for='אמת המים בסרט "טיטוס"'> אמת המים בסרט "טיטוס"</label><br>
+
+                          <input type="radio" id='המבצר ב"המבצר"' name="answer" value='The Fort'>
+                          <label for='המבצר ב"המבצר"'> המבצר ב"המבצר"</label><br>
+
+                          <input type="radio" id='החומה ב"משחקי הכס"' name="answer" value='The Wall'>
+                          <label for='החומה ב"משחקי הכס"'>החומה ב"משחקי הכס"</label><br>
+
+                          <input type="radio" id='ספינת הרחפת "נבוכדנאצר" בסרט "המטריקס"' name="answer" value='The Nebuchadnezzar'>
+                          <label for='ספינת הרחפת "נבוכדנאצר" בסרט "המטריקס"'> ספינת הרחפת "נבוכדנאצר" בסרט "המטריקס"</label> <br>
+
+                          <input type="radio" id='ארון הברית ב"שודדי התיבה האבודה"' name="answer" value='Ark of the Covenant'>
+                          <label for='ארון הברית ב"שודדי התיבה האבודה"'> ארון הברית ב"שודדי התיבה האבודה"</label><br>
+
+                          <input type="radio" id='הפסל של דוד בן גוריון בכניסה לנתב"ג' name="answer" value='The Bust of David Ben-Gurion'>
+                          <label for='הפסל של דוד בן גוריון בכניסה לנתב"ג'> הפסל של דוד בן גוריון בכניסה לנתב"ג</label><br>
                     </div>
                     <button type="submit" class="btn btn-default btn-lg">שלח</button>
                 </div>
@@ -98,6 +123,7 @@
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
   });
+
 
 
 </script>

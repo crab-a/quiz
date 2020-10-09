@@ -26,25 +26,26 @@
 <div id="site-border-bottom"></div>
 <!-- Add your content of header -->
 <header>
-  <nav class="navbar  navbar-fixed-top navbar-default">
-    <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    <nav class="navbar  navbar-fixed-top navbar-default">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ">
-                                <!--  ↓↓לעדכן את מספר הדף↓↓  -->
-          <li><a href="{{ url_for( 'back' ,page_number= 7 ) }}" title="">שאלה קודמת</a></li>
-        </ul>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav ">
+                    <!--  ↓↓לעדכן את מספר הדף↓↓  -->
+                    <li><a href="{{ url_for( 'back' ,page_number= 6 ) }}" title="">שאלה קודמת</a></li>
+                </ul>
 
 
-      </div>
-    </div>
-  </nav>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <div class="section-container">
@@ -57,21 +58,15 @@
 
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <p dir="rtl"> <p dir="rtl">
-במלחמת ששת הימים נכבשה העיר העתיקה של ירושלים והדרך אל הכותל המערבי נפתחה. אבל רחבת הכותל ההיסטורית היתה צרה ודחוקה. לשם הרחבת הרחבה היה צורך להחריב את השכונה המערבית שעמדה לידו. 
+                        <p dir="rtl">
+                        <p dir="rtl">
+                            במלחמת ששת הימים נכבשה העיר העתיקה של ירושלים והדרך אל הכותל המערבי נפתחה. אבל רחבת הכותל
+                            ההיסטורית היתה צרה ודחוקה. לשם הרחבת הרחבה היה צורך להחריב את השכונה המערבית שעמדה לידו.
 
-איך כונו לימים אלו שהופקדו על המשימה?</p>
+                            איך כונו לימים אלו שהופקדו על המשימה?</p>
 
-<p><img alt="רחבת הכותל 1966" src="../images/Kotel_1967.jpg" title="רחבת הכותל 1967" /></p>
-<ul dir = "rtl">
-<p dir="rtl"><li></li>מסדר הכותל</li></p>
-<p dir="rtl"><li>מכסחי המוגרבים</li></p>
-<p dir="rtl"><li>גדוד אסף של חיל ההנדסה הקרבית</li></p>
-<p dir="rtl"><li>גדוד ההנדסה של פיקוד מרכז</li></p>
-<p dir="rtl"><li>"הקבלן" - יצחק עבוד הלוי</li></p>
-<p dir="rtl"><li>שומרי משמרת הקודש</li></p>
-<p dir="rtl"><li>מטהרי המקדש</li></p>
-</ul>                     </div>
+                        <p><img class="img-responsive" alt="רחבת הכותל 1966" src="./static/assets/images/Kotel_1967.jpg" title="רחבת הכותל 1967"/></p>
+                    </div>
 
                 </div>
 
@@ -85,7 +80,26 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="form-group">
-                        <textarea name="answer" class="form-control" rows="1" placeholder="תשובה כאן" style="text-align:right"></textarea>
+                         <input type="radio" id="שומרי משמרת הקודש" name="answer" value="שומרי משמרת הקודש">
+                        <label for="שומרי משמרת הקודש">  שומרי משמרת הקודש </label><br>
+
+                            <input type="radio" id= "גדוד אסף של חיל ההנדסה הקרבית"  name="answer" value="גדוד אסף של חיל ההנדסה הקרבית">
+                        <label for="גדוד אסף של חיל ההנדסה הקרבית">  גדוד אסף של חיל ההנדסה הקרבית </label><br>
+
+                            <input type="radio" id="מכסחי המוגרבים" name="answer" value="מכסחי המוגרבים">
+                        <label for="מכסחי המוגרבים">  מכסחי המוגרבים </label><br>
+
+                            <input type="radio" id="מטהרי המקדש" name="answer" value="מטהרי המקדש">
+                        <label for="מטהרי המקדש">  מטהרי המקדש </label><br>
+
+                            <input  type="radio" id='"הקבלן" - יצחק עבוד הלוי' name="answer" value='"הקבלן" - יצחק עבוד הלוי'>
+                        <label for='"הקבלן" - יצחק עבוד הלוי'>  הקבלן" - יצחק עבוד הלוי" </label><br>
+
+                            <input type="radio" id="גדוד ההנדסה של פיקוד מרכז" name="answer" value="גדוד ההנדסה של פיקוד מרכז">
+                        <label for="גדוד ההנדסה של פיקוד מרכז">  גדוד ההנדסה של פיקוד מרכז </label><br>
+
+                            <input type="radio" id="מסדר הכותל" name="answer" value="מסדר הכותל">
+                        <label for="מסדר הכותל">  מסדר הכותל </label><br>
                     </div>
                     <button type="submit" class="btn btn-default btn-lg">שלח</button>
                 </div>
@@ -98,6 +112,7 @@
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
   });
+
 
 
 </script>

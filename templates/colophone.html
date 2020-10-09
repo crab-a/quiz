@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav ">
                     <!--  ↓↓לעדכן את מספר הדף↓↓  -->
-                    <li><a href="{{ url_for( 'back' ,page_number= 10 ) }}" title="">שאלה קודמת</a></li>
+                    <li><a href="{{ url_for( 'back' ,page_number= 11 ) }}" title=""> אחורה</a></li>
                 </ul>
 
 
@@ -53,15 +53,17 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="section-container-spacer text-center">
-                    <h1 class="h2">שאלה 10</h1>
+                    <h1 class="h2" style="text-align:"> "כל המתאבל על ירושלים זוכה ורואה בשמחתה" </h1>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1" dir="rtl">
-                        <p></p>מאז שדוד כבש את ירושלים ואמר "כל מכה יבוסי ויגע בצינור" (שמואל ב) למערכות אספקת המים
-                        בירושלים נודעה חשיבות רבה. בעיקר בגלל מחסור במעינות שיכולים לספק את כמות המים הגדולה הנדרשת
-                        לאנשי העיר.
-                        מה הייתה הקצבת המים היומית לאדם במהלך המצור בירושלים במלחמת העצמאות (אחרי יוני 1948)?
+                    <div class="col-md-10 col-md-offset-1">
+                        <p dir="rtl">
+                            אם נהנתם מהחידון אתם יכולים לנסות את <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLScPatNKaZhopNIgK2EjO6WTuy8VueY-RTfu3RUzMyrfsvIDPA/viewform">החידון
+                            הקודם שעשיתי</a> לכבוד יום שחרור ירושלים. אפשר גם לשתף את החידון עם אנשים אחרים שיענו לאתגר.
+                            אשמח לקבל משוב כאן </p>
+
                     </div>
 
                 </div>
@@ -72,30 +74,21 @@
 </div>
 <div class="row">
     <div class="col-md-10 col-md-offset-4">
-        <form action="/submit_form" method="post" class="reveal-content">
+        <form action="/submit_quiz" method="post" class="reveal-content">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-7" style="text-align:center">
                     <div class="form-group">
-                        <input style="text-align:right" name="answer" type="text" class="form-control" id="answer" placeholder="תשובה כאן">
+                        <textarea name="answer" class="form-control" rows="3"
+                                  placeholder="לאחר סיום המבחן לא ניתן יהיה לחזור לאחור"
+                                  style="text-align:right"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-default btn-lg">שלח</button>
+                    <button type="submit" class="btn btn-default btn-lg">סיום המבחן ושליחת משוב</button>
                 </div>
             </div>
         </form>
     </div>
 
 </div>
-<script>
-  document.addEventListener("DOMContentLoaded", function (event) {
-     navActivePage();
-  });
-
-
-
-</script>
-
-<script type="text/javascript" src="./static/main.70a66962.js"></script>
 </body>
 
 </html>
-
