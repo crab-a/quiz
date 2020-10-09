@@ -2,6 +2,7 @@ import markdown
 import os
 import csv
 import re
+import git
 from flask import Flask, render_template, request, redirect
 
 # def md_to_html(md_text):
@@ -18,9 +19,22 @@ from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 page_number = 1
 answer = ''
+
+
 @app.route('/')
 def my_home():
     return render_template('intro.html')
+
+
+@app.route('/update_server', methods=['POST'])
+  def webhook():
+       if request.method == 'POST':
+            repo = git.Repo('home/craba/quiz/')
+            origin = repo.remotes.origin
+            origin.pull()
+            return 'Updated PythonAnywhere successfully', 200
+        else:
+            return 'Wrong event type', 400
 
 
 @app.route('/<string:current_page>')  # to be removed in production
@@ -48,10 +62,12 @@ def submit_form():
     else:
         return redirect('try_again')
 
+
 @app.route('/try_again')
 def try_again():
     global page_number
     return render_template(f'Q{page_number}.html')
+
 
 @app.route('/full_answer')
 def full_answer():
@@ -80,6 +96,7 @@ def back():
         page_number -= 1
         return render_template(f'Q{page_number}.html')
 
+
 @app.route('/submit_quiz', methods=['POST', 'GET'])
 def submit_quiz():
     global answers
@@ -93,6 +110,7 @@ def submit_quiz():
 
         return render_template('summary.html', answers=answers)
 
+
 @app.route('/Q0.html')
 def send_to():
     return render_template(f'intro.html')
@@ -100,7 +118,8 @@ def send_to():
 
 def write_to_csv(answer, username):
     with open('database.csv', newline='', mode='a') as database:
-        csv_writer = csv.writer(database, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csv_writer = csv.writer(database, delimiter=',',
+                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([answer])
 
 
@@ -108,12 +127,14 @@ def find_page_number():
     page_number = int(request.args.get('page_number'))
     return page_number
 
+
 def check1(answer):
-    local_answer=answer['answer']
+    local_answer = answer['answer']
     if re.search(r'(כפר שאול)', local_answer):
         return True
     else:
         return False
+
 
 def check2(answer):
     local_answer = answer['answer']
@@ -122,12 +143,14 @@ def check2(answer):
     else:
         return False
 
+
 def check3(answer):
     local_answer = answer['answer']
     if local_answer == 'The Wall':
         return True
     else:
         return False
+
 
 def check4(answer):
     local_answer = answer['answer']
@@ -136,12 +159,14 @@ def check4(answer):
     else:
         return False
 
+
 def check5(answer):
     local_answer = answer['answer']
     if local_answer == '5':
         return True
     else:
         return False
+
 
 def check6(answer):
     local_answer = answer['answer']
@@ -150,12 +175,14 @@ def check6(answer):
     else:
         return False
 
+
 def check7(answer):
     local_answer = answer['answer']
     if local_answer == 'בשבעת צבעי הקשת בכניסה לגן הילדים ברחוב':
         return True
     else:
         return False
+
 
 def check8(answer):
     local_answer = answer['answer']
@@ -175,12 +202,14 @@ def check9(answer):
     except:
         return False
 
+
 def check10(answer):
     answer = answer['answer']
     if answer == '10':
         return True
     else:
         return False
+
 
 answers = {}
 
