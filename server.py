@@ -20,6 +20,8 @@ app = Flask(__name__)
 page_number = 1
 answer = ''
 
+print(2)
+
 
 @app.route('/')
 def my_home():
